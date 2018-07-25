@@ -117,5 +117,5 @@ while True:
     clock.tick(FRAMES)
 
 if __name__ == "__main__":
-    game_loop()
+    game_loop() # Start the game loop
     pygame.quit()
