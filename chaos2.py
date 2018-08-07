@@ -116,7 +116,6 @@ def set_points():
             if event.type == pygame.MOUSEBUTTONUP:
                 if make_new_point:
                     point = Point(pygame.mouse.get_pos())
-                    print(point.label_index, point.choices)
                     
                     if point.label_index < len(point.label_chars):
                         points.append(point)
@@ -157,7 +156,6 @@ def run():
                 sys.exit()
                 
         random_number = random.randint(0, (2 * len(points)) - 1 )
-        print(2 * len(points))
         
         for point in points:
             
