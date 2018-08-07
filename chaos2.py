@@ -1,4 +1,5 @@
 import pygame
+from pygame.locals import *
 import random
 import sys
 import string
@@ -21,7 +22,7 @@ class Point:
         self.y = position[1]
         self.radius = 10
         
-        self.choices_length = 3
+        self.choices_length = 2
         self.choices = list(range(self.choices_length * Point.label_index, (self.choices_length * Point.label_index) + self.choices_length))
         
         # Label
@@ -115,7 +116,7 @@ def set_points():
             if event.type == pygame.MOUSEBUTTONUP:
                 if make_new_point:
                     point = Point(pygame.mouse.get_pos())
-                    print(point.label_index)
+                    print(point.label_index, point.choices)
                     
                     if point.label_index < len(point.label_chars):
                         points.append(point)
@@ -155,11 +156,8 @@ def run():
                 pygame.quit()
                 sys.exit()
                 
-            if event.type == pygame.MOUSEBUTTONUP:
-                point = Point(pygame.mouse.get_pos())
-                points.append(point)
-                
-        random_number = random.randint(1, 2 * len(points))
+        random_number = random.randint(0, (2 * len(points)) - 1 )
+        print(2 * len(points))
         
         for point in points:
             
@@ -169,6 +167,7 @@ def run():
                 
                 current_position = (x, y)
                 dots.append(Dot(current_position, 5))
+                break
 
         display.fill(BACKGROUND_COLOR)
         
@@ -198,14 +197,14 @@ if __name__ == "__main__":
     points = []
 
     # Constants
-    WIDTH = 800
-    HEIGHT = 600
+    WIDTH = 960
+    HEIGHT = 540
     FRAMES = 25
     BACKGROUND_COLOR = light_pink
 
     # Pygame init
     pygame.init()
-    display = pygame.display.set_mode((WIDTH, HEIGHT))
+    display = pygame.display.set_mode((WIDTH, HEIGHT), RESIZABLE)
     pygame.display.set_caption("Chaos Game")
     clock = pygame.time.Clock()
     
