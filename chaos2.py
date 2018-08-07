@@ -4,6 +4,16 @@ import random
 import sys
 import string
 
+'''
+    Create three dots, labeled A, B, and C, and assign each one two numbers. 
+A is assigned 1 and 2; B is assigned 3 and 4; C is assigned 5 and 6. Starting 
+Anywhere on the screen, roll a 6-sided die. Make a dot half way between where
+you started and the point that is assigned the number you rolled. Repeat this, 
+but start at the newly-drawn dot. This procedure will often produce fractal 
+patterns. The three-points example -- mentioned above -- produced a Sierpinski 
+triangle ( https://en.wikipedia.org/wiki/Sierpinski_triangle ). 
+'''
+
 
 class Point:
 
@@ -195,8 +205,8 @@ if __name__ == "__main__":
     points = []
 
     # Constants
-    WIDTH = 960
-    HEIGHT = 540
+    WIDTH = 1000
+    HEIGHT = 600
     FRAMES = 25
     BACKGROUND_COLOR = light_pink
 
