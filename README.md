@@ -1,4 +1,4 @@
-# Game-Chaos
+# Game Chaos
 
 This project is based on a video I found on the Numberphile YouTube channel. [Here](https://www.youtube.com/watch?v=kbKtFN71Lfs) is that video.
 
