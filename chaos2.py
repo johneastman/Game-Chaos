@@ -3,6 +3,7 @@ from pygame.locals import *
 import random
 import sys
 import string
+import math
 
 '''
     Create three dots, labeled A, B, and C, and assign each one two numbers. 
@@ -124,16 +125,28 @@ def set_points():
                 return
                 
             if event.type == pygame.MOUSEBUTTONUP:
+            
+                point_x, point_y = pygame.mouse.get_pos()
+                
+                '''
+                Deleting Points
+                if display.get_at( (point_x, point_y) ) == red:
+                    for point in points:
+                        if (point_x >= point.x - point.radius and point_x <= point.x + point.radius) or (point_y >= point.y - point.radius and point_y <= point.y + point.radius):
+                            point.label_index =- 1
+                            points.remove(point)
+                '''
                 if make_new_point:
-                    point = Point(pygame.mouse.get_pos())
-                    
+                    point = Point( (point_x, point_y) )
                     if point.label_index < len(point.label_chars):
                         points.append(point)
                     else:
                         points.append(point)
-                        make_new_point = False
+                        make_new_point = False    
                 else:
                     print("Unable to add more points")
+                    
+
                     
 
         # Set background color
